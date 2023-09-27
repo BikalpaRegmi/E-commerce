@@ -18,7 +18,7 @@ const Item = ({addToCart,data}) => {
       </Link> 
     </div>
     <div className="flex justify-between text-3xl uppercase">
-        <span className='pl-3 pt-3 text-rose-800'>{`$ ${price}`}</span>
+        <span className='pl-3 pt-3 text-green-600'>{`$ ${price}`}</span>
         <span className='pt-3 pr-3  text-3xl rounded-full cursor-pointer hover:shadow-sm hover:bg-blue-700 bg-blue-900 text-white' title='add this item to cart' onClick={addToCart}> <AiOutlineShoppingCart className='mb-2 ml-2'/> </span>
     </div>
     </div>

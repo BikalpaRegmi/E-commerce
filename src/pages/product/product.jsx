@@ -35,7 +35,7 @@ const Product = () => {
         <div className='mt-36 ml-40'><i className='text-7xl '>Loading...</i></div>)
        : (
         <>
-        <div className="flex justify-around h-[450px] shadow-md w-9/12 mt-16 overflow-auto ml-48">
+        <div className="flex justify-around h-[450px] shadow-md w-9/12 mt-16 overflow-auto ml-40 sm:ml-12 sm:w-[700px]">
           <div className="mt-12">
            <img src={product.image} alt="" className='h-80 w-60 rounded-xl shadow-sm justify-start' />
           </div>

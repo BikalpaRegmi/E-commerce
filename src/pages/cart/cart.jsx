@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import { useCart } from '../../context/cart';
 import { Link } from 'react-router-dom';
 
-const SHIPPING_CHARGES = 5; // Corrected variable name
+
+const SHIPPING_CHARGES = 5; 
 
 const Cart = () => {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
-
   const cartTotal = () => {
     return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   };
@@ -14,11 +14,15 @@ const Cart = () => {
   const round = (value, decimals) => {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
   };
-
+  
+  useEffect(()=>{
+    localStorage.setItem('item', JSON.stringify(cart));
+  },[cart])
   return (
     <>
+    <div className='flex flex-wrap'>
       {cart.length >= 1 ? (
-        <div className="flex mt-24 ml-64 shadow-md w-[900px]">
+        <div className="flex mt-24 ml-3 shadow-md w-[900px]">
           <div className="p-7 flex flex-col">
             <h1 className="text-3xl pb-3 w-64 border-gray-900">Order Summary</h1>
             <hr />
@@ -71,11 +75,11 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="text-7xl opacity-30 ml-[481px] mt-9">
+        <div className="text-7xl opacity-30 ml-60 mt-9">
           <p>Cart is empty</p>
         </div>
       )}
-      <div className="shadow-md w-[900px] ml-64 mt-20">
+      <div className="shadow-lg w-[900px] ml-3 mt-72 h-80 pb-20">
         <div className="heading">
           <h1 className="text-3xl p-3 text-center border-gray-900">Payment Summary</h1>
           <hr />
@@ -91,6 +95,7 @@ const Cart = () => {
             <span>Total</span> <span>${round(cartTotal() + SHIPPING_CHARGES, 2)}</span>
           </p>
         </div>
+      </div>
       </div>
     </>
   );

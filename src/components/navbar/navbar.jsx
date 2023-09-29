@@ -29,8 +29,8 @@ const Navbar = ({onSearch,cartItemCount}) => {
   
   return (
     <>
-      <header>
-        <div className="flex justify-around bg-green-700 h-12 shadow-2xl pt-0">
+      <header className='sm:text-center'>
+        <div className="flex justify-around bg-green-700 h-12 shadow-2xl pt-0 ">
         <Link to ='/'>
         <p className='text-white text-3xl p-0 cursor-pointer hover:opacity-60 hover:bg-gray-300 hover:text-blue-900 rounded-3xl font-bold pl-3 pr-3 pt-1 hover:shadow-md mt-1 bg-green-800 shadow-sm pb-1' title='Go to home page'> Buy Bikalpa </p>
         </Link>
